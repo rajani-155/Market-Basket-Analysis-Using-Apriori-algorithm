@@ -1,0 +1,162 @@
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #060608;
+  transition: color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link .icon {
+  margin-right: 4px;
+  color: #1c1919;
+}
+
+.sidebar .nav-link.active {
+  color: #230f96c9;
+}
+
+.sidebar .nav-link:hover .icon,
+.sidebar .nav-link:hover {
+  color: #2a6fb5;
+}
+
+.sidebar .nav-link:hover .icon {
+  color: #000000;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  font-size: 0.875rem;
+  color: #c4ecec;
+  text-align: left;
+  list-style: none;
+  background-color: #c2c8eb;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #8c9fb1;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #1d4e97;
+  text-decoration: none;
+  background-color: #cfdce9;
+}
+
+.sidebar-heading {
+  font-size: 0.75em;
+  text-transform: uppercase;
+}
+
+.navbar-brand {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  font-size: 1em;
+  background-color: rgba(8, 8, 19, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.navbar .form-control {
+  padding: 0.75em 1em;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.navbar-brand:hover {
+  background-color: rgba(163, 148, 220, 0.5);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-control-dark {
+  color: #d2b8b8;
+  background-color: rgba(90, 66, 214, 0.1);
+  border-color: rgba(67, 69, 198, 0.1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(139, 135, 139, 0.25);
+}
+
+.upload-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="file"] {
+  padding: .375rem .75rem;
+  border: 1px solid #0a0b0b;
+  border-radius: .25rem;
+  background-color: #e8c4c4;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #0c0c0c;
+  background-color: #f5bec2;
+  padding: 0.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}

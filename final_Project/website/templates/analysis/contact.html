@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #dae7ec;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+      color: #161313;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #191818;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #0a0909;
+    }
+
+    input,
+    textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 3px;
+      border: none;
+      background-color: #d7ebeb;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #5d76e3;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background-color: #97dbec;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 20px;
+      color: #080606;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Feedback/Query</h2>
+    {% if submitted %}
+      <p>Thank you for contacting us!</p>
+    {% else %}
+      <form action="/submit-contact/" method="POST">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button type="submit">Submit</button>
+      </form>
+    {% endif %}
+  </div>
+</body>
+</html>

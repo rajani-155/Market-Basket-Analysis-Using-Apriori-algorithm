@@ -1,0 +1,335 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Homepage - My Website{% endblock %}
+
+{% block content %}
+<div class="market-container"> 
+  <div class="market-content">
+    <div class="market-info">
+      <h2 class="market-info-title">What is Market Basket Analysis?</h2>
+      <p class="market-info-text">In today's competitive marketplace, understanding customer behavior and preferences is crucial for businesses striving to succeed. </p>
+      <p class="market-info-text">Market Basket Analysis is a statistical data mining technique used by retailers to increase sales by better understanding customer purchasing patterns. </p>
+      <p class="market-info-text">By hunting through transactional data and uncovering hidden relationships between products, businesses can unlock valuable insights about their customers’ purchasing patterns and make informed decisions to optimize marketing strategies, improve cross-selling efforts, and enhance customer satisfaction.</p>
+    </div>
+    <div class="market-image-container">
+      <div class="zoom-container">
+        <img src="{% static 'img/53519.jpg' %}" alt="Market Basket Analysis" class="market-image">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="market-container">
+  <h3 style="text-align: left; font-size: 22px; font-style: normal; font-weight: 500;">Apriori Algorithm</h3>
+  <p class="market-info-text"> Apriori algorithm is a classic algorithm used for frequent itemset mining and association rule learning in data mining and machine learning. It is primarily used for finding associations or relationships between items in a dataset. The algorithm is named after the Latin phrase "a priori," meaning "from the former" or "from the previous." </p>
+
+ <p class="market-info-text"> The goal of the Apriori algorithm is to discover frequent itemset in a given dataset, where an itemset is a collection of items that frequently occur together. It follows the principle of the "apriori property," which states that if an itemset is frequent, then all of its subsets must also be frequent.</p>
+
+
+</div>
+
+  <div class="market-container">
+    <div class="container">
+      <h3>Support</h3>
+      <p style="text-align: justify;
+      text-justify: inter-word;">
+        The support of an item is the number of transactions containing the item. Those items that do not meet the minimum support are excluded from the further processing.
+      </p>
+      
+        
+      
+      <p style="text-align: justify;
+      text-justify: inter-word;">Support (A) = Total Number of          Occurrence (A)/Total Number of Transactions</p>
+      <p style="text-align: justify;
+      text-justify: inter-word;">Where, N represents the total number of baskets/transactions(N)</p>
+    </div>
+  
+    <div class="container">
+      <h3>Confidence</h3>
+      <p style="text-align: justify;
+      text-justify: inter-word;">
+        Confidence is defined as the conditional probability that a transaction containing the LHS will also contain the RHS.
+      </p>
+     
+      <p style="text-align: justify;
+      text-justify: inter-word;">Confidence (A → B) =  Support Count        (A U B)/Support Count (A)</p>
+    </div>
+  
+    <div class="container">
+      <h3>Lift</h3>
+      <p style="text-align: justify;
+      text-justify: inter-word;">
+        Lift refers to the increase in the ratio of sale of item B when item A is sold.
+      </p>
+     
+      <p style="text-align: justify;
+      text-justify: inter-word;">Lift (A → B) =  Support Count (A U B)/     Support Count (A) * Support Count(B)</p>
+    </div>
+  </div>
+  
+
+
+<h2 class="mb-4" style="font-size: 2rem; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); font-weight: bold;">Graphs</h2>
+
+<div class="graph-container">
+
+
+
+  <!-- Bar Plot -->
+  <div class="graph-item">
+    <h3 class="caption">Bar Plot</h3>
+    <a href="{% static 'img/bar.png' %}" data-lightbox="graph-image" data-title="Bar Plot">
+      <img src="{% static 'img/bar.png' %}" alt="Bar Plot" class="graph-image">
+    </a>
+    <div class="graph-caption">
+      
+      <p class="market-info-text">A Bar plot, also called Bar Chart uses either horizontal or vertical bars (column chart) to show discrete, numerical comparisons across categories. One axis of the chart shows the specific categories being compared and the other axis represents a discrete value scale. </p>
+      <p class="market-info-text">The length of each bar is proportional to the value of the variable at that point in time.</p>
+      <p class="market-info-text">The chart plots the value vertically whereas we perceive the value to be at right angles to the general direction of the chart.</p>
+      
+    </div>
+  </div>
+
+
+  <!-- Scatter Plot -->
+  <div class="graph-item">
+    <h3 class="caption" >Scatter Plot</h3>
+    <a href="{% static 'img/scatter.png' %}" data-lightbox="graph-image" data-title="Scatter Plot">
+      <img src="{% static 'img/scatter.png' %}" alt="Scatter Plot" class="graph-image">
+    </a>
+    <div class="graph-caption">
+      
+      <p class="market-info-text">A Scatterplot places points on a Cartesian Coordinates system to display all the values between two variables. It is used for showing the relationship between two different variables i.e., correlation and distribution analysis. </p>
+      <p class="market-info-text"> The strength of the correlation can be determined by how closely packed the points are to each other on the graph. It helps in spotting anomalies or outliers. </p>
+      <p class="market-info-text">When similarities in the data set are to be highlighted, and also when we have too much data to quickly see a pattern then, it is best. It is ideal when we have paired numerical data and want to see if one variable impacts the other.</p>
+    </div>
+  </div>
+
+   <!-- Parallel Plot -->
+<div class="graph-item">
+  <h3 class="caption">Parallel Plot</h3>
+  <a href="{% static 'img/parallel.png' %}" data-lightbox="graph-image" data-title="Parallel Plot">
+    <img src="{% static 'img/parallel.png' %}" alt="Parallel Plot" class="graph-image">
+  </a>
+  <div class="graph-caption">
+    
+    <p class="market-info-text">Each variable is given an axis and all the axes are placed parallel to each other and values are plotted as a series of lines that are connected across all the axes. Each line is a collection of points placed on each axis, that have all been connected. </p>
+    <p class="market-info-text">The order the axes are arranged can impact the way how the reader understands the data. The relationships between adjacent variables are easier to perceive than for non-adjacent variables. Re-ordering the axes can help in discovering patterns or correlations across variables. </p>
+    <p class="market-info-text">It is used for plotting multivariate, numerical data and comparing many variables together and seeing the relationships between them.</p>
+  </div>
+</div>
+
+  
+  <!-- Heatmap -->
+  <div class="graph-item">
+    <h3 class="caption">Heatmap</h3>
+    <a href="{% static 'img/heat.png' %}" data-lightbox="graph-image" data-title="Heatmap">
+      <img src="{% static 'img/heat.png' %}" alt="Heatmap" class="graph-image">
+    </a>
+    <div class="graph-caption">      
+      <p class="market-info-text">Heatmap depicts a pair-wise correlation matrix obtained from different data attributes. Typically, all the rows are one category and all the columns are another. The cells are the intersections of the rows and columns, which can either contain categorical data or numerical data.</p>
+      <p class="market-info-text"> A legend is placed alongside a Heatmap for it to be successfully read. Categorical data is color-coded, while numerical data requires a color scale that blends from one color to another, in order to represent the difference in high and low values. It provides us with an easy to understand visual representation of high, negative or none correlation, shows variance across multiple variables and reveals any patterns.</p>
+    </div>
+  </div>
+
+
+ 
+
+
+  <!-- Network Diagram -->
+<div class="graph-item">
+  <h3  class="caption">Network Diagram</h3>
+  <a href="{% static 'img/network.png' %}" data-lightbox="graph-image" data-title="Network Diagram">
+    <img src="{% static 'img/network.png' %}" alt="Network Diagram" class="graph-image">
+  </a>
+  <div class="graph-caption">   
+    <p class="market-info-text">Also known as Network Graph, Network Map, Node-Link Diagram. It shows how things are interconnected through the use of nodes and link lines to represent their connections and help illuminate the type of relationships between a group of entities. </p>
+    <p class="market-info-text">Typically, nodes are drawn as little dots or circles, but icons can also be used. Links are usually displayed as simple lines connected between the nodes. However, in some Network Diagrams, not all of the nodes and links are created equally by making the node size or link stroke weight proportion to an assigned value. </p>
+    <p class="market-info-text">Network Diagrams can be used to interpret the structure of a network by looking for any clustering of the nodes, how densely nodes are connected or how the diagram layout is arranged.The two notable types of Network Diagrams are "undirected" and "directed". Undirected Network Diagrams only display the connections between entities, while directed Network Diagrams show if the connections are one-way or two-way through small arrows.</p>
+   
+  </div>
+</div>
+</div>
+</div>
+
+
+<style>
+  .market-container {
+  background-color: #f5f3f3;
+  padding: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.market-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #151313;
+}
+
+.market-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.market-info {
+  flex: 1;
+  max-width: 600px;
+  margin-right: 20px;
+  text-align: justify;
+  text-justify: inter-word;
+
+}
+
+.market-info-title {
+  font-size: 24px;
+  margin-bottom:20px;
+  color: #100f0f;
+  margin-top: 0px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.market-info-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1a1919;
+  font-style: normal;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.market-image-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zoom-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.market-image {
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+  cursor: zoom-in;
+}
+
+.market-image.zoomed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+@media (max-width: 768px) {
+  .market-content {
+    flex-direction: column;
+  }
+
+  .market-info {
+    margin-right: 0;
+    margin-bottom: 20px;
+    font-style: normal;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .market-image-container {
+    align-self: center;
+  }
+}
+
+
+.graph-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .graph-item {
+    flex: 0 0 calc(50% - 10px);
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    min-width: 300px;
+    max-width: 500px;
+    width: 100%;
+    font-style: normal;
+  }
+  .caption {
+  font-size: 24px;
+  margin-bottom:20px;
+  color: #100f0f;
+  margin-top: 0px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-style: normal;
+  font-weight: 500;
+}
+
+  .graph-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .graph-image {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .graph-image:hover {
+    transform: scale(1.1);
+  }
+
+  .graph-caption {
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: left;
+   
+    
+  }
+
+  .container {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .container h3 {
+    text-align: left;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+  }
+  
+  .container p {
+    text-align: left;
+  }
+</style>
+
+
+ 
+<!-- Include Lightbox Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+{% endblock %}

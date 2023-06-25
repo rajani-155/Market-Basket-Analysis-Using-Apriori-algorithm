@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Network Diagram</title>
+    <style>
+      /* Style for the body */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style for the container div */
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        background-color: #fff;
+      }
+
+      /* Style for the network diagram image */
+      .network {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      /* Style for the title */
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+       /* Style for the caption */
+       .caption {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #0a0808;
+        margin-top: 10px;
+        line-height: 1.5;
+        font-style: normal;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+       /* Style for the text container */
+       .text-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #e9eff2;
+        border-radius: 5px;
+        margin-left: 180px;
+        margin-right: 180px;
+      }
+
+
+      .graph-image {
+    max-width: 80%; /* Adjust the percentage as needed */
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="graph-item">
+        <h1 style="text-align: center; padding: 20px 0;">Network Diagram</h1>
+        <a href="{% static 'graph/networkdiagram.jpeg' %}" data-lightbox="graph-image" data-title="Heatmap">
+          <img src="{% static 'graph/networkdiagram.jpeg' %}" alt="Network" class="graph-image">
+        </a>
+      </div>
+
+  
+      <div class="text-container">
+      <p class="caption">Here, Directed and Unweighted Network Graph is shown where Pink bubbles represents the rules and blue bubbles indicates the items associated with the rules. For easy readability and understanding, Spring Layout is used and separate edge colors are used for individual rules. Legend shows the item code given to item in the graph.</p>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{% if frequent_item_set %}
+  <table>
+    <thead>
+      <tr>
+        <th>Item Set Size</th>
+        <th>Item Set</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for size, item_set in frequent_item_sets.items %}
+        <tr>
+          <td>{{ size }}</td>
+          <td>{{ item_set }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>No frequent item sets found.</p>
+{% endif %}

@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bardiagram</title>
+    <style>
+      /* Reset default margin and padding */
+      body, h1, h2, p {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Set a background color and font family */
+      body {
+        background-color: #f8f8f8;
+        font-family: 'Arial', sans-serif;
+      }
+
+      /* Style for the container div */
+      .container {
+        width: calc(33.33% - 20px); /* Adjust the width to fit 3 containers in one row */
+        margin: 20px 10px; /* Add margin between containers */
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        display: inline-block; /* Change to inline-block */
+        text-align: center;
+        transition: transform 0.3s ease;
+        vertical-align: top; /* Add vertical alignment */
+      }
+
+      .container:hover {
+        transform: scale(1.05);
+      }
+
+      /* Style for the bardiagram image */
+      .bardiagram {
+        display: block;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        max-height: 400px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Style for the title */
+      h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #333333;
+        font-weight: bold;
+      }
+
+      /* Style for the caption */
+      .caption {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #0a0808;
+        margin-top: 10px;
+        line-height: 1.5;
+        font-style: normal;
+        text-align: justify;
+      }
+
+       /* Style for the text container */
+       .text-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #e9eff2;
+        border-radius: 5px;
+        margin-left: 180px;
+        margin-right: 180px;
+      }
+      /* Add a wrapper div for the containers */
+      .container-wrapper {
+        text-align: center;
+        white-space: nowrap; /* Prevent line breaks */
+        overflow-x: auto; /* Enable horizontal scrolling */
+      }
+      .graph-image {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center; padding: 20px 0;">Bardiagrams</h1>
+    <div class="container-wrapper"> <!-- Add wrapper div -->
+
+      <div class="container">
+        <div class="graph-item">
+          <h2>Bar Diagram 1</h2>
+          <a href="{% static 'graph/1-frequent itemset_barplot.jpeg' %}" data-lightbox="graph-image" data-title="Heatmap">
+            <img src="{% static 'graph/1-frequent itemset_barplot.jpeg' %}" alt="Heatmap" class="graph-image">
+          </a>
+       </div>
+      </div>
+
+
+
+      <div class="container">
+        <div class="graph-item">
+          <h2>Bar Diagram 2</h2>
+          <a href="{% static 'graph/2-frequent itemset_barplot.jpeg' %}" data-lightbox="graph-image" data-title="Heatmap">
+            <img src="{% static 'graph/2-frequent itemset_barplot.jpeg' %}" alt="Heatmap" class="graph-image">
+          </a>
+       </div>
+      </div>
+
+
+      <div class="container">
+        <div class="graph-item">
+          <h2>Bar Diagram 3</h2>
+          <a href="{% static 'graph/3-frequent itemset_barplot.jpeg' %}" data-lightbox="graph-image" data-title="Heatmap">
+            <img src="{% static 'graph/3-frequent itemset_barplot.jpeg' %}" alt="Heatmap" class="graph-image">
+          </a>
+       </div>
+      </div>     
+
+      
+    </div>
+    <div class="text-container">
+    <p class="caption">In the bar plot, the x-axis represents the names of the items in the frequent item set, while the y-axis represents the frequency or count of each item. Each item is assigned a bar, and the height of each bar corresponds to its frequency value.</p>
+    <p class="caption">The bar plot provides a clear visual overview of the distribution of item frequencies within the dataset.</p>
+    </div>
+  </body>
+</html>

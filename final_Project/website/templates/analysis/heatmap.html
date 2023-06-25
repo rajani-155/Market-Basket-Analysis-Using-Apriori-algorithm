@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Heatmap</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      /* Style for the container div */
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        border: 1px solid #bcd0d9;
+        border-radius: 5px;
+        box-shadow: 2px 2px 5px rgba(243, 239, 239, 0.1);
+        padding: 20px;
+        background-color: #e3e8efac;
+      }
+
+      /* Style for the title */
+      h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #161616;
+      }
+
+      /* Style for the heatmap image */
+      .heatmap {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+      }
+
+      /* Style for the caption */
+      .caption {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #0a0808;
+        margin-top: 10px;
+        line-height: 1.5;
+        font-style: normal;
+        text-align: justify;
+        text-justify: inter-word;
+      }
+
+      /* Style for the text container */
+      .text-container {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #e9eff2;
+        border-radius: 5px;
+        margin-left: 180px;
+        margin-right:180px;
+      }
+
+      /* Style for the graph item */
+      .graph-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+
+      /* Style for the graph image */
+      .graph-image {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+      }
+      
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="graph-item">
+          <h1 style="text-align: center; padding: 20px 0;">Heatmap</h1>
+          <a href="{% static 'graph/heatmap.jpeg' %}" data-lightbox="graph-image" data-title="Heatmap">
+            <img src="{% static 'graph/heatmap.jpeg' %}" alt="Heatmap" class="graph-image">
+          </a>
+        </div>
+
+        <div class="text-container">
+          <p class="caption">Here, two variables ‘Support’ and ‘Confidence’ are plotted in x and y axis respectively, and ‘Lift’ is annotated to 2 decimal places in respective cells. The cells containing null values are annotated as 0.</p>
+          <p class="caption">Green colormap is used and legend shows lighter shade indicates lower values and goes on darkening with increase with value. Thus, the cell having darkest shade indicates maximum lift and lightest indicates minimum.  </p>
+        </div>
+      </div>      
+    
+  </body>
+</html>

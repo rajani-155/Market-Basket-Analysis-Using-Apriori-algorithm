@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body">
+            <h2 class="text-center mb-4">Upload File</h2>
+            {% if messages %}
+              {% for message in messages %}
+                <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
+              {% endfor %}
+            {% endif %}
+            <form method="post" enctype="multipart/form-data" class="upload-form">
+              {% csrf_token %}
+              <div class="form-group">
+                
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" name="file" id="file">
+                  <label class="custom-file-label" for="file">Choose file</label>
+                  {% if form.file.errors %}
+                    <div class="invalid-feedback d-block">
+                      {% for error in form.file.errors %}
+                        {{ error|escape }}
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Upload</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block styles %}
+
+  <style>
+    .upload-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .custom-file {
+      overflow: hidden;
+    }
+
+    .custom-file-input {
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: calc(2.25rem + 2px);
+      opacity: 0;
+    }
+
+    .custom-file-label {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      display: block;
+      padding: .375rem .75rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+    }
+
+    .custom-file-label::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 3;
+      display: block;
+      height: calc(2.25rem + 2px);
+      padding: .375rem .75rem;
+      line-height: 1.5;
+      color: #495057;
+      content: "Browse";
+      background-color: #f0ad4e;
+      border-left: none;
+      border-radius: 0 .25rem .25rem 0;
+    }
+
+    .custom-file-input:focus ~ .custom-file-label {
+      border-color: #f0ad4e;
+      box-shadow: 0 0 0 .2rem rgba(240, 173, 78, .25);
+    }
+
+    .invalid-feedback {
+      display: block;
+      margin-top: .25rem;
+      font-size: 80%;
+      color: #dc3545;
+}
+  </style>
+{% endblock %}   

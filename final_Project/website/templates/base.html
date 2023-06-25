@@ -1,0 +1,128 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Website {% block title %} {% endblock %}</title>
+
+  <!-- Include Bootstrap CSS -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/dashboard.css' %}" rel="stylesheet" />
+  <style>
+    .navbar {
+      height: 60px;
+      background-color: #8f969ae2;
+    }
+    .navbar-brand {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #f1e4e4; /* Change the color to black */
+}
+
+.navbar-nav .nav-link {
+  padding: 0.5rem 1rem;
+  color: #faecec; /* Change the color to black */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e2e3ea;
+}
+
+    
+    .navbar-collapse {
+      justify-content: flex-end;
+    }
+    .navbar-nav .nav-link[href="/contact"] {
+      color: black;
+    }
+    .navbar-nav .nav-link[href="#"] {
+      color: black;
+    }
+    
+    
+  
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#"> Market Basket Analysis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <span class="nav-link" style="color: black;">
+            ({{ request.user.username }})
+          </span>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact Us</a>
+        </li>
+        
+        
+        <li class="nav-item" >
+          <form action="{% url 'logout' %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-link nav-link"style="color: black;" type="submit">Sign out</button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      {% include 'partials/_sidebar.html' %}
+
+      <!-- Main Content -->
+      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="padding-top: 80px;">
+        <!-- Flash Messages -->
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            {% block breadcrumb %}
+              <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Current Page</li>
+            {% endblock %}
+          </ol>
+        </nav>
+
+        <!-- Content -->
+        {% block content %}
+        {% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <!-- Include jQuery -->
+  <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+  <!-- Include Bootstrap JS -->
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+  <!-- Custom script -->
+  <script>
+    $(document).ready(function() {
+      // Activate Bootstrap tooltips and popovers
+      $('[data-toggle="tooltip"]').tooltip();
+      $('[data-toggle="popover"]').popover();
+    });
+  </script>
+</body>
+</html>

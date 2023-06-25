@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frequency Table</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-family: Arial, sans-serif;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+        color: #333;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-6 text-center">
+        <h1  class="text-center mb-4 " style="font-size: 2rem; color: #333; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); font-weight: bold;">Frequent Item Set Table</h1>
+
+      
+   
+    <table>
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>S.N</th>
+          <th>Name</th>
+          <th>Frequency</th>
+          <th>Minimum Support</th>
+          {% for key in data.0.keys %}
+          <th>{{ key }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% for file, rows in data.items %}
+        {% for row in rows %}
+        <tr>
+          {% if forloop.first %}
+          <td rowspan="{{ rows|length }}">{{ file }}</td>
+          {% endif %}
+          {% for value in row.values %}
+          <td>{{ value }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+        {% endfor %}
+      </tbody>
+    </table>
+      </div>
+  </body>
+</html>

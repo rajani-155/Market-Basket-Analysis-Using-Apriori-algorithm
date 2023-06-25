@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Value{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="mb-4">Value Calculator</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+                <label for="{{ form.support_value.id_for_label }}" class="col-sm-2 col-form-label">Support</label>
+                <div class="col-sm-10">
+                    {{ form.support_value }}
+                    {% if form.support_value.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.support_value.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.confident_value.id_for_label }}" class="col-sm-2 col-form-label">Confidence</label>
+                <div class="col-sm-10">
+                    {{ form.confident_value }}
+                    {% if form.confident_value.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.confident_value.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="{{ form.lift_value.id_for_label }}" class="col-sm-2 col-form-label">Lift</label>
+                <div class="col-sm-10">
+                    {{ form.lift_value }}
+                    {% if form.lift_value.errors %}
+                        <div class="invalid-feedback">
+                            {{ form.lift_value.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-10 offset-sm-2">
+                    <button type="submit" class="btn btn-primary">Calculate</button>
+                </div>
+            </div>
+        </form>
+        {% if result %}
+            <div class="alert alert-success mt-4" role="alert">
+                The result is: {{ result }}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

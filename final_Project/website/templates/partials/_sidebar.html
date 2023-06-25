@@ -1,0 +1,228 @@
+{% load static %}
+
+<nav class="col-md-2 d-none d-md-block bg sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'home' %}">
+          <span data-feather="home"></span>
+          Home
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav flex-column mb-2">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'upload_file' %}">
+          <span data-feather="upload"></span>
+          <span class="ml-2">File Upload</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'rules' %}">
+          <span data-feather="sliders"></span>
+          <span class="ml-2">Evaluation Metrics</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'frequency_table' %}">
+          <span data-feather="table"></span>
+          <span class="ml-2">Frequent Items</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'associationrule_table' %}">
+          <span data-feather="table"></span>
+          <span class="ml-2">Association Rule Table</span>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="graphsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="feather" data-feather="bar-chart-2"></span>
+          <span class="ml-2">Chart</span>
+        </a>
+
+        <ul class="dropdown-menu">
+          <li>
+            <a class="nav-link" href="{% url 'barchart_view' %}">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="ml-2">Bar Diagram</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="nav-link" href="{% url 'scatterplot_view' %}">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="ml-2">Scatterplot</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="nav-link" href="{% url 'parallelplot_view' %}">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="ml-2">Parallel Plot</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="nav-link" href="{% url 'heatmap_view' %}">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="ml-2">Heatmap</span>
+            </a>
+          </li>
+          
+          <li>
+            <a class="nav-link" href="{% url 'networkdiagram_view' %}">
+              <i class="fa-solid fa-chart-line"></i>
+              <span class="ml-2">Network Diagram</span>
+            </a>
+          </li>
+        </ul>
+        
+      </li>
+    </ul>
+  </div>
+</nav>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<!-- Font Awesome JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+
+
+<!-- Feather Icons JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+<!-- jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Initialize Feather Icons
+  feather.replace();
+</script>
+
+<style>
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    border-right: 1px solid rgba(8, 6, 6, 0.1);
+    background-color: #e6eaf4; /* Change background color to black */
+  }
+
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5em;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  }
+
+  @supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  }
+
+  .sidebar .nav-link {
+    font-weight: 500;
+    color: #060608;
+    transition: color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar .nav-link .icon {
+    margin-right: 4px;
+    color: #1c1919;
+  }
+
+  .sidebar .nav-link.active {
+    color: #6d5be8c9;
+  }
+
+  .sidebar .nav-link:hover .icon,
+  .sidebar .nav-link:hover {
+    color: #2a6fb5;
+  }
+
+  .sidebar .nav-link:hover .icon {
+    color: #000000;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #080909;
+    text-align: left;
+    list-style: none;
+    background-color: #dbeeef;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.25rem;
+  }
+
+  .dropdown-menu.show {
+    display: block;
+  }
+
+  .dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #8c9fb1;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    color: #1d4e97;
+    text-decoration: none;
+    background-color: #8fabc7;
+  }
+
+  .sidebar-heading {
+    font-size: 0.75em;
+    text-transform: uppercase;
+  }
+</style>
